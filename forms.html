@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form>
+        <div>
+           <label for="fname">First name</label>
+           <input type="text" id="fname" name="fname" placeholder="First Name" required>
+        </div>
+         
+        <br>
+        <div>
+            <label for="mname">Middle name</label>
+            <input type="text" id="mname" name="mname" placeholder="Middle Name" required>
+        </div> 
+  
+        <br>
+        <div>
+             <label for="lname">Last name</label>
+             <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+        </div>
+
+        <br>
+        <div>
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" placeholder="Kianpogi@gmail.com" required>
+            </div> 
+        <br>
+
+        <div>
+        <label for="Sex" required>Sex:</label> 
+        <select id="Sex" name="Sex">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Prefer not to say">Prefer not to say</option>
+        </select>
+        </div>
+        <br>
+
+        <div>
+             
+            <label>Subjects Taken: </label>
+            <label for="MathCheckbox">
+                <input type="checkbox" id="Math" name="subject" value="Math"> Math
+              </label>
+              
+              <label for="Science">
+                <input type="checkbox" id="Scienec" name="subject" value="Science"> Science
+              </label>
+              
+              <label for="Filipino">
+                <input type="checkbox" id="Filipino" name="subject" value="Filipino"> Filipino
+              </label>
+              
+              <label for="English">
+                <input type="checkbox" id="English" name="subject" value="English"> English
+              </label>
+              <br>
+               
+              <input type="Reset" value="Reset">      <input type="submit" value="Submit">
+
+
+
+        </div>
+    </form>
+    <style>
+     body {
+      font-family: 'Italic', sans-serif;
+      background: url('images/kian.gif') no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      cursor: url('images/cursor.png'), auto;
+    }
+
+    form {
+        background-color: rgba(173, 216, 230, 0.5); 
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+    @keyframes glitter {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+    100% { filter: brightness(1); }
+     }
+
+   body:hover {
+  animation: glitter 1s infinite;
+  }
+
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    ::placeholder {
+      color: skyblue;
+      opacity: 1;
+
+    }
+    
+  
+    
+  </style>
+    </style>
+</body>
+</html>

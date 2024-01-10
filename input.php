@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submitted Data</title>
-
 </head>
 <body>
-   
 
     <h1>Inputted Data</h1>
 
     <?php
 
+function goBack(){
+    header("Location: forms.html?message=Invalid input");
+ }
+ function validate($input) {
+    $pattern = '/[^a-zA-Z\s]/'; 
+
+    if (empty($input) || preg_match($pattern, $input)) {
+        goBack();
+    }
+    
+}
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fname = $_POST["fname"];
         $mname = $_POST["mname"];
         $lname = $_POST["lname"];
         $email = $_POST["Email"];
         $sex = $_POST["Sex"];
+
+        validate($fname);
+        validate($mname);
+        validate($lname);
 
     
         $subjects = isset($_POST["Math"]) ? "Math, " : "";
@@ -48,13 +61,12 @@
         $subjects .= isset($_POST["Filipino"]) ? ", Filipino" : "";
         $subjects .= isset($_POST["English"]) ? ", English" : "";
     
-        // Get the absolute path to the directory
+
         $directory = __DIR__;
     
-        // Specify the CSV file path
+        
         $csvFilePath = $directory . "/number3.csv";
     
-        // Open or create the CSV file in append mode
         $csvFile = fopen($csvFilePath, "a");
     
         if ($csvFile !== false) {
@@ -76,33 +88,9 @@
         echo "<p>No data submitted.</p>";
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo "<h2>Table of Data</h2>";
-        echo "<style>
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+        echo "<h2>Submitted Data</h2>";
 
-        table {
-            width: 50%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-      </style>";
-      
-
-        echo "<table>";
+        echo "<table border ='1' width='300' cellspacing='0'>";
         echo "<tr><td>First Name</td><td>$fname</td></tr>";
         echo "<tr><td>Middle Name</td><td>$mname</td></tr>";
         echo "<tr><td>Last Name</td><td>$lname</td></tr>";
